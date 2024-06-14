@@ -1,9 +1,9 @@
-name: Styling guide
+name: Styling
 
 on: [push]
 
 jobs:
-  run-styling-guide:
+  run-styling:
 
     runs-on: ubuntu-latest
 
