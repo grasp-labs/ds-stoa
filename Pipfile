@@ -4,10 +4,15 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+requests = "*"
+pandas = "*"
+pyarrow = "*"
 
 [dev-packages]
+pytest = "*"
+coverage = "*"
 sphinx = "*"
 sphinx-autoapi = "*"
 
 [requires]
-python_version = "3.11"
+python_version = ">=3.8"
