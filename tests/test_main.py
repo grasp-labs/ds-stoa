@@ -1,4 +1,4 @@
-from ds-stoa.main import itos
+from ds_stoa.main import itos
 
 
 def test():

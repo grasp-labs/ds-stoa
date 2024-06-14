@@ -5,8 +5,12 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "ds-stoa"
 dynamic = ["version"]
-description = "A python package for ..."
-dependencies = []
+description = "A python package for GraspDP Stoa. Simple and easy way to interact with GraspDP datalake."
+dependencies = [
+  "pandas",
+  "requests",
+  "pyarrow",
+]
 requires-python = ">=3.8"
 license = { file = "LICENCE" }
 keywords = ["grasp-labs", "python"]
