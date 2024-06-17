@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ds-stoa"
+dynamic = ["version"]
+description = "A python package for GraspDP Stoa. Simple and easy way to interact with GraspDP datalake."
+dependencies = [
+  "pandas",
+  "requests",
+  "pyarrow",
+]
+requires-python = ">=3.8"
+license = { file = "LICENCE" }
+keywords = ["grasp-labs", "python"]
+authors = [
+    {name = "Kristoffer Varslott", email = "kristoffer@grasplabs.no"}
+]
+maintainers = [
+    {name = "Kristoffer Varslott", email = "kristoffer@grasplabs.no"}
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+readme = "PyPI.md"
+
+[project.urls]
+Homepage = "https://graspdp.com/"
+Documentation = "https://grasp-labs.github.io/ds-stoa/"
+Repository = "https://github.com/grasp-labs/ds-stoa/"
+Issues = "https://github.com/grasp-labs/ds-stoa/issues/"
+Changelog = "https://github.com/grasp-labs/ds-stoa/blob/main/CHANGELOG.md"
+
+[tool.setuptools.dynamic]
+version = {file = "VERSION.txt"}

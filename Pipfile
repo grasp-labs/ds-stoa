@@ -1,0 +1,26 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+requests = "*"
+pandas = "*"
+pyarrow = "*"
+numpy = ">=1.24.4"
+tomli = ">=2.0.1"
+typing-extensions =">=4.12.2"
+astroid = ">=3.2.2"
+exceptiongroup = ">=1.2.1"
+importlib-metadata = ">=7.1.0"
+
+[dev-packages]
+pytest = "*"
+coverage = "*"
+sphinx = "*"
+sphinx-autoapi = "*"
+build = "*"
+twine = "*"
+
+[requires]
+python_version = ">=3.8, <3.12"
