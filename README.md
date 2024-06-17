@@ -1,4 +1,10 @@
-# Package Name
+# ds Stoa
+
+![Python Versions](https://img.shields.io/badge/python-3.8%20|%203.9%20|%203.10%20|%203.11|%203.12-blue)
+[![PyPI version](https://badge.fury.io/py/ds-stoa.svg)](https://badge.fury.io/py/ds-stoa)
+[![Build Status](https://github.com/grasp-labs/ds-stoa/actions/workflows/python-package-unittests.yml/badge.svg)](https://github.com/grasp-labs/ds-stoa/actions/workflows/python-package-unittests.yml)
+[![codecov](https://codecov.io/gh/grasp-labs/ds-stoa/graph/badge.svg?token=EO3YCNCZFS)](https://codecov.io/gh/grasp-labs/ds-stoa)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Development
 
