@@ -13,13 +13,14 @@ typing-extensions =">=4.12.2"
 astroid = ">=3.2.2"
 exceptiongroup = ">=1.2.1"
 importlib-metadata = ">=7.1.0"
-build = "*"
 
 [dev-packages]
 pytest = "*"
 coverage = "*"
 sphinx = "*"
 sphinx-autoapi = "*"
+build = "*"
+twine = "*"
 
 [requires]
 python_version = ">=3.8, <3.12"
