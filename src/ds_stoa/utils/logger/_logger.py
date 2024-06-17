@@ -3,6 +3,7 @@
 import logging
 import sys
 import tempfile
+from typing import Optional
 
 from ._context import ContextFilter, FolderNameFilter
 
@@ -113,7 +114,10 @@ class StoaLogger:
         file_handler.name = "log-file"
         return file_handler
 
-    def _setup_stream_handler(self, prefix: str | None = None) -> logging.StreamHandler:
+    def _setup_stream_handler(
+        self,
+        prefix: Optional[str] = None,
+    ) -> logging.StreamHandler:
         """
         Sets up stream handler for logger with logging prefix.
 

@@ -71,6 +71,7 @@ def rest(email: str, password: str) -> str:
             url,
             headers={"Content-Type": "application/json"},
             json=payload,
+            timeout=60,
         )
         response.raise_for_status()
 

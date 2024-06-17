@@ -34,6 +34,7 @@ def order(token: str, params: Dict) -> List[str]:
                 "Authorization": f"Bearer {token}",
             },
             params=params,
+            timeout=60,
         )
         response.raise_for_status()
 

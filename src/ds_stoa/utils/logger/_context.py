@@ -6,7 +6,7 @@ This module contains the context filter for the logger.
 
 import os
 import logging
-from typing import Literal
+from typing import Literal, Optional
 
 
 class ContextFilter(logging.Filter):
@@ -15,7 +15,7 @@ class ContextFilter(logging.Filter):
     record. This filter is used to add a prefix to the log.
     """
 
-    def __init__(self, prefix: str | None = None) -> None:
+    def __init__(self, prefix: Optional[str] = None) -> None:
         """
         Constructor for the ContextFilter class.
 

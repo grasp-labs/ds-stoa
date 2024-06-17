@@ -23,7 +23,10 @@ def fetch_url(url: str) -> BytesIO:
     :param url: str
     :return: BytesIO
     """
-    response = requests.get(url=url)
+    response = requests.get(
+        url=url,
+        timeout=60,
+    )
     return BytesIO(response.content)
 
 

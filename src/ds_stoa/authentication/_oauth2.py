@@ -73,7 +73,13 @@ def oauth2(client_id: str, client_secret: str) -> str:
 
     try:
         response = requests.post(
-            url, auth=auth.HTTPBasicAuth(client_id, client_secret), data=payload
+            url,
+            auth=auth.HTTPBasicAuth(
+                client_id,
+                client_secret,
+            ),
+            data=payload,
+            timeout=60,
         )
         response.raise_for_status()
 

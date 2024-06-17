@@ -35,6 +35,7 @@ def sign(token: str, params: Dict) -> str:
                 "Authorization": f"Bearer {token}",
             },
             params=params,
+            timeout=60,
         )
         response.raise_for_status()
 

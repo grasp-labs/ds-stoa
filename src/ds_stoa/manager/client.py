@@ -7,7 +7,7 @@ ordering messages, which are essential operations for communication and data
 exchange within our system.
 """
 
-from typing import Dict, List, Literal, Union
+from typing import Dict, List, Literal, Optional, Union
 
 import pandas as pd
 
@@ -37,10 +37,10 @@ class Stoa:
         offset: int = 0,
         limit: int = 20,
         ascending: bool = False,
-        email: str | None = None,
-        password: str | None = None,
-        client_id: str | None = None,
-        client_secret: str | None = None,
+        email: Optional[str] = None,
+        password: Optional[str] = None,
+        client_id: Optional[str] = None,
+        client_secret: Optional[str] = None,
     ) -> None:
         """
         Constructor for the Stoa class. Initializes a new instance of the
