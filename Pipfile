@@ -13,6 +13,7 @@ typing-extensions =">=4.12.2"
 astroid = ">=3.2.2"
 exceptiongroup = ">=1.2.1"
 importlib-metadata = ">=7.1.0"
+build = "*"
 
 [dev-packages]
 pytest = "*"
