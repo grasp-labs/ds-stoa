@@ -21,4 +21,4 @@ sphinx = "*"
 sphinx-autoapi = "*"
 
 [requires]
-python_version = ">=3.8, <=3.12"
+python_version = ">=3.8, <3.12"
