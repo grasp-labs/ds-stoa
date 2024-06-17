@@ -7,6 +7,12 @@ name = "pypi"
 requests = "*"
 pandas = "*"
 pyarrow = "*"
+numpy = ">=1.24.4"
+tomli = ">=2.0.1"
+typing-extensions =">=4.12.2"
+astroid = ">=3.2.2"
+exceptiongroup = ">=1.2.1"
+importlib-metadata = ">=7.1.0"
 
 [dev-packages]
 pytest = "*"
