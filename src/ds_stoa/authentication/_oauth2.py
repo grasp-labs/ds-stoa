@@ -20,18 +20,18 @@ Usage of this module requires setting up the appropriate environment variable
 This allows for flexible deployment and testing without code changes.
 
 Dependencies:
-- requests: For making HTTP requests to the OAuth2 token endpoint.
-- utils.exceptions: For enriching HTTP exceptions with more context.
-- utils.logger: For logging information about the
-                authentication process and errors.
+- **requests**: For making HTTP requests to the OAuth2 token endpoint.
+- **utils.exceptions**: For enriching HTTP exceptions with more context.
+- **utils.logger**: For logging information about the authentication process and errors.
 
-Example usage:
-```python
-from ds_stoa.authentication import oauth2
+Example usage::
 
-# Obtain an access token using client credentials
-access_token = oauth2('your_client_id', 'your_client_secret')
-print(access_token)
+    from ds_stoa.authentication import oauth2
+
+    # Obtain an access token using client credentials
+    access_token = oauth2('your_client_id', 'your_client_secret')
+    print(access_token)
+
 """
 
 import os
@@ -47,18 +47,18 @@ BUILDING_MODE = os.getenv("BUILDING_MODE", default="dev")
 
 def oauth2(client_id: str, client_secret: str) -> str:
     """
-    Authenticates a application and retrieves an access token.
+    Authenticates an application and retrieves an access token.
 
     :param client_id: The Client ID.
-    :type email: str
+    :type client_id: str
     :param client_secret: The Client Secret.
-    :type password: str
+    :type client_secret: str
     :returns: An access token indicating successful authentication.
     :rtype: str
 
-    Example::
+    **Example**::
 
-        >>> rest('client_id', 'client_secret')
+        >>> oauth2('client_id', 'client_secret')
         'access_token_value'
     """
     url = {

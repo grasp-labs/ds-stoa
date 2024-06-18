@@ -17,22 +17,20 @@ to switch between development and production environments. This facilitates
 easy testing and deployment without needing to alter the codebase.
 
 Dependencies:
-- requests: For making HTTP requests to the authentication endpoint.
-- utils.exceptions: For enriching HTTP exceptions with additional context.
-- utils.logger: For logging the authentication process and any errors that
-                occur.
+- **requests**: For making HTTP requests to the authentication endpoint.
+- **utils.exceptions**: For enriching HTTP exceptions with additional context.
+- **utils.logger**: For logging the authentication process and any errors that occur.
 
-Example usage:
-```python
-from ds_stoa.authentication import rest
+Example usage::
 
-# Authenticate a user and obtain an access token
-access_token = rest('user@example.com', 'password123')
-print(access_token)
+    from ds_stoa.authentication import rest
+
+    # Authenticate a user and obtain an access token
+    access_token = rest('user@example.com', 'password123')
+    print(access_token)
 """
 
 import os
-from typing import Dict
 
 import requests
 
@@ -54,7 +52,7 @@ def rest(email: str, password: str) -> str:
     :returns: An access token indicating successful authentication.
     :rtype: str
 
-    Example::
+    **Example**::
 
         >>> rest('user@example.com', 'secret')
         'access_token_value'
@@ -82,11 +80,10 @@ def rest(email: str, password: str) -> str:
     body = response.json()
 
     access_token: str = body.get("access_token")
-    tenant: Dict = body.get("tenant")
 
     if not access_token:
         LOGGER.error("Error: Access token not found.")
         raise ValueError("Access token not found.")
 
-    LOGGER.info(f"Successfully authenticated: {tenant.get('name')}.")
+    LOGGER.info("Successfully authenticated...")
     return access_token

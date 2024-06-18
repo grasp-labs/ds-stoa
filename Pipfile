@@ -21,6 +21,7 @@ sphinx = "*"
 sphinx-autoapi = "*"
 build = "*"
 twine = "*"
+sphinx-material = "*"
 
 [requires]
 python_version = ">=3.8, <3.12"

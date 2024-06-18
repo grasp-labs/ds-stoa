@@ -9,13 +9,13 @@ from unittest import TestCase, mock
 import pandas as pd
 from requests import HTTPError
 
-from src.ds_stoa.manager.client import Stoa
+from src.ds_stoa.manager import StoaClient
 
 
 class TestManager(TestCase):
 
     def setUp(self) -> None:
-        self.stoa = Stoa(
+        self.stoa = StoaClient(
             authentication="rest",
             product_group_name="product_group_name",
             product_name="product_name",
@@ -31,7 +31,7 @@ class TestManager(TestCase):
         """
         # Setup, Exercise & Asserts
         with self.assertRaises(ValueError):
-            Stoa(
+            StoaClient(
                 authentication="rest",
                 product_group_name="product_group_name",
                 product_name="product_name",
@@ -44,7 +44,7 @@ class TestManager(TestCase):
 
         # Setup, Exercise & Asserts
         with self.assertRaises(ValueError):
-            Stoa(
+            StoaClient(
                 authentication="rest",
                 product_group_name="product_group_name",
                 product_name="product_name",
@@ -101,7 +101,7 @@ class TestManager(TestCase):
         """
         # Setup, Exercise & Asserts
         with self.assertRaises(ValueError):
-            stoa = Stoa(
+            stoa = StoaClient(
                 authentication="rest",
                 product_group_name="product_group_name",
                 product_name="product_name",
@@ -112,7 +112,7 @@ class TestManager(TestCase):
 
         # Setup, Exercise & Asserts
         with self.assertRaises(ValueError):
-            stoa = Stoa(
+            stoa = StoaClient(
                 authentication="oauth2",
                 product_group_name="product_group_name",
                 product_name="product_name",
@@ -194,7 +194,7 @@ class TestManager(TestCase):
         # Asserts
         self.assertFalse(result)
 
-    @mock.patch.object(Stoa, "authenticate")
+    @mock.patch.object(StoaClient, "authenticate")
     def test_invalid_workspace(self, _auth) -> None:
         """
         Test case for invalid workspace.
@@ -207,7 +207,7 @@ class TestManager(TestCase):
             self.stoa.order()
 
     @mock.patch("src.ds_stoa.manager.client.order")
-    @mock.patch.object(Stoa, "authenticate")
+    @mock.patch.object(StoaClient, "authenticate")
     def test_order(self, _auth, _order) -> None:
         """
         Test case for the order method.
@@ -224,7 +224,7 @@ class TestManager(TestCase):
         _order.called_once()
 
     @mock.patch("src.ds_stoa.manager.client.sign")
-    @mock.patch.object(Stoa, "authenticate")
+    @mock.patch.object(StoaClient, "authenticate")
     def test_sign(self, _auth, _sign) -> None:
         """
         Test case for the sign method.
@@ -245,9 +245,9 @@ class TestManager(TestCase):
         _sign.called_once()
 
     @mock.patch("src.ds_stoa.manager.client.fetch")
-    @mock.patch.object(Stoa, "sign")
-    @mock.patch.object(Stoa, "order")
-    @mock.patch.object(Stoa, "authenticate")
+    @mock.patch.object(StoaClient, "sign")
+    @mock.patch.object(StoaClient, "order")
+    @mock.patch.object(StoaClient, "authenticate")
     def test_fetch(self, _auth, _order, _sign, _fetch) -> None:
         """
         Test case for the fetch method.
