@@ -20,6 +20,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install sphinx
         pip install sphinx-autoapi
+        pip install sphinx-material
     - name: Build HTML
       working-directory: docs
       run: |
