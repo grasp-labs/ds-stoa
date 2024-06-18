@@ -11,12 +11,12 @@ from typing import Dict, List, Literal, Optional, Union
 
 import pandas as pd
 
-from authentication import oauth2, rest
-from fetch import fetch
-from order import order
-from sign import sign
-from utils.logger import LOGGER
-from utils.decorators import ensure_authenticated
+from ..authentication import oauth2, rest
+from ..fetch import fetch
+from ..order import order
+from ..sign import sign
+from ..utils.logger import LOGGER
+from ..utils.decorators import ensure_authenticated
 
 
 class StoaClient:

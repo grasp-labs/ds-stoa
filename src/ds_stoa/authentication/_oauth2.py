@@ -39,8 +39,8 @@ import os
 import requests
 from requests import auth
 
-from utils.exceptions import enrich_http_exception
-from utils.logger import LOGGER
+from ..utils.exceptions import enrich_http_exception
+from ..utils.logger import LOGGER
 
 BUILDING_MODE = os.getenv("BUILDING_MODE", default="dev")
 
