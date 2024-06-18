@@ -31,7 +31,6 @@ Example usage::
 """
 
 import os
-from typing import Dict
 
 import requests
 
@@ -81,11 +80,10 @@ def rest(email: str, password: str) -> str:
     body = response.json()
 
     access_token: str = body.get("access_token")
-    tenant: Dict = body.get("tenant")
 
     if not access_token:
         LOGGER.error("Error: Access token not found.")
         raise ValueError("Access token not found.")
 
-    LOGGER.info(f"Successfully authenticated: {tenant.get('name')}.")
+    LOGGER.info("Successfully authenticated...")
     return access_token
