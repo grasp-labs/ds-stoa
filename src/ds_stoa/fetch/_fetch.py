@@ -83,7 +83,7 @@ def fetch(pre_signed_urls: Dict) -> pd.DataFrame:
                 data = future.result()
             except Exception as exc:
                 LOGGER.error(f"{url} generated an exception: {exc}")
-            else:
-                df = pd.read_parquet(data)
-                dataframes.append(df)
+                continue
+            df = pd.read_parquet(data)
+            dataframes.append(df)
         return pd.concat(dataframes)
