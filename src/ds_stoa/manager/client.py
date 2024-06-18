@@ -19,7 +19,7 @@ from utils.logger import LOGGER
 from utils.decorators import ensure_authenticated
 
 
-class Stoa:
+class StoaClient:
     """
     The Stoa class provides methods for handling messages within our system.
     These methods include operations for fetching, signing, authenticating,
@@ -90,6 +90,7 @@ class Stoa:
         Token getter that retrieves the current access token.
 
         :return: The access token.
+        :raises ValueError: If the access token is missing.
         """
         if not self._token:
             raise ValueError("Authentication token is missing.")
@@ -102,6 +103,7 @@ class Stoa:
         additional validation or logging.
 
         :param value: The access token to set.
+        :raises ValueError: If the access token is empty.
         """
         if not value:
             raise ValueError("Cannot set an empty access token.")
@@ -113,6 +115,7 @@ class Stoa:
         Order IDs getter that retrieves the current list of order IDs.
 
         :return: List of order IDs.
+        :raises ValueError: If no order IDs are found.
         """
         if not self._order_ids:
             raise ValueError("No order IDs found.")
@@ -125,6 +128,7 @@ class Stoa:
         with additional validation or logging.
 
         :param value: List of order IDs.
+        :raises ValueError: If the order IDs are not a list.
         """
         if not isinstance(value, list):
             raise ValueError("Order ID's must be a list.")
@@ -140,6 +144,7 @@ class Stoa:
         Signatures getter that retrieves the current dictionary of signatures.
 
         :return: Dictionary of signatures.
+        :raises ValueError: If no signatures are found.
         """
         if not self._signatures:
             raise ValueError("No signatures found.")
@@ -152,6 +157,7 @@ class Stoa:
         with additional validation or logging.
 
         :param value: Dictionary of signatures.
+        :raises ValueError: If the signatures are not a dictionary.
         """
         if not isinstance(value, dict):
             raise ValueError("signatures must be a dictionary.")
@@ -169,6 +175,12 @@ class Stoa:
 
         :return: The access token for the authenticated request.
         :rtype: str
+        :raises NotImplementedError: If the authentication method is invalid.
+
+        **example**::
+            >>> stoa = StoaClient(**params)
+            >>> stoa.authenticate()
+            >>> assert stoa.token
         """
         LOGGER.info("Authenticating request...")
 
@@ -206,6 +218,11 @@ class Stoa:
 
         :return: True if the message is authenticated, False otherwise.
         :rtype: bool
+
+        **example**::
+            >>> stoa = StoaClient(**params)
+            >>> stoa.authenticate()
+            >>> assert stoa.is_authenticated()
         """
         try:
             return self.token is not None
@@ -221,6 +238,12 @@ class Stoa:
 
         :return: Ordered keys.
         :rtype: List
+        :raises ValueError: If the workspace is invalid.
+
+        **example**::
+            >>> stoa = StoaClient(**params)
+            >>> stoa.order()
+            >>> assert stoa.order_ids
         """
         LOGGER.info("Creating order from request...")
 
@@ -252,6 +275,13 @@ class Stoa:
 
         :return: The pre-signed URLs for the messages.
         :rtype: Dict
+        :raises ValueError: If the order IDs are missing.
+
+        **example**::
+            >>> stoa = StoaClient(**params)
+            >>> stoa.order()
+            >>> stoa.sign()
+            >>> assert stoa.signatures
         """
         LOGGER.info(f"Signing {len(self.order_ids)} orders...")
         signatures = {}
@@ -274,6 +304,11 @@ class Stoa:
         :param format: The format in which to return the fetched data.
         :return: The fetched data in the specified format.
         :rtype: List[Dict]
+        :raises ValueError: If the format is invalid.
+
+        **example**::
+            >>> stoa = StoaClient(**params)
+            >>> stoa.fetch(format="json")
         """
         LOGGER.info(
             f"Fetching product: {self.product_name} | {self.owner_id}...",
