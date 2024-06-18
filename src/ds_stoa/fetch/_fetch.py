@@ -30,7 +30,7 @@ from typing import Dict
 import pandas as pd
 import requests
 
-from utils.logger import LOGGER
+from ..utils.logger import LOGGER
 
 
 def fetch_url(url: str) -> BytesIO:
