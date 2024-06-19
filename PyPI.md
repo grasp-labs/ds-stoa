@@ -9,7 +9,7 @@ The `Stoa` package, developed by Grasp Labs AS, is a core component of our commu
 You can install the `Stoa` package via pip:
 
 ```bash
-pip install stoa
+pip install ds-stoa
 ```
 
 ## Usage
