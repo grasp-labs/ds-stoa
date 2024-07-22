@@ -62,7 +62,7 @@ class TestSign(TestCase):
         # Asserts
         self.assertEqual(
             exc.exception.response.status_code,
-            403,
+            401,
         )
 
     @mock.patch("src.ds_stoa.sign._sign.requests.get")

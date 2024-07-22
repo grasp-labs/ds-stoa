@@ -70,5 +70,5 @@ class TestOrder(TestCase):
         # Asserts
         self.assertEqual(
             exc.exception.response.status_code,
-            403,
+            401,
         )

@@ -65,7 +65,7 @@ def order(token: str, params: Dict) -> List[str]:
             ["12345.snappy.parquet", "67890.snappy.parquet"]
     """
     url = {
-        "dev": "https://fmdp.io/stoa-dev/order/",
+        "dev": "https://fmdp.io/api/stoa-dev/v2/order/",
         "prod": "https://fmdp.io/api/stoa/v2/order/",
     }
     url = url[BUILDING_MODE]
