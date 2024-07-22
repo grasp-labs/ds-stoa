@@ -56,7 +56,7 @@ def sign(token: str, params: Dict) -> str:
             "https://fmdp.io/stoa-dev/sign/12345"
     """
     url = {
-        "dev": "https://fmdp.io/stoa-dev/sign/",
+        "dev": "https://fmdp.io/api/stoa-dev/v2/sign/",
         "prod": "https://fmdp.io/api/stoa/v2/sign/",
     }
     url = url[BUILDING_MODE]
